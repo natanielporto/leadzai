@@ -1,4 +1,4 @@
-import { useContext, useState } from "react";
+import { useContext, useState, useEffect, useRef } from "react";
 import { GlobalContext } from "../../context/GlobalContext";
 import * as S from "./styles";
 
@@ -7,6 +7,7 @@ const CITIES = ["London", "New York", "Lisbon"];
 export default function App() {
   const { city, setCity } = useContext(GlobalContext);
   const [isOpen, setIsOpen] = useState(false);
+  const dropdownRef = useRef<HTMLDivElement>(null); // Definindo o tipo de referência
 
   const toggling = () => setIsOpen(!isOpen);
 
@@ -15,9 +16,22 @@ export default function App() {
     setCity(value);
   };
 
+  const handleClickOutside = (event: MouseEvent) => {
+    if (dropdownRef.current && !dropdownRef.current.contains(event.target as Node)) {
+      setIsOpen(false);
+    }
+  };
+
+  useEffect(() => {
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, []);
+
   return (
     <S.Section>
-      <S.DropDownContainer>
+      <S.DropDownContainer ref={dropdownRef}>
         <S.DropDownHeader onClick={toggling} data-testid="dropDownHeader">
           {city || "Lisbon"}
         </S.DropDownHeader>

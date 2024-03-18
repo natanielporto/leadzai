@@ -23,10 +23,10 @@ const SunTimer = () => {
   return (
     <S.Container>
       <span>
-        {hoursInTimeZone(data?.sys?.sunrise)}
+        Sunrise: {hoursInTimeZone(data?.sys?.sunrise)}
       </span>
       <span>
-        {hoursInTimeZone(data?.sys?.sunset)}
+        Sunset: {hoursInTimeZone(data?.sys?.sunset)}
       </span>
      </S.Container>
   );

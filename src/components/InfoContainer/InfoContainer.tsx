@@ -8,8 +8,9 @@ import Navbar from "../Navbar/Navbar";
 
 const InfoContainer = () => {
   return (
-    <S.Container data-testid="infoContainer">
+    <S.OuterContainer>
       <Navbar/>
+    <S.Container data-testid="infoContainer">
       <S.TopContainer>
         <S.TopContainerLeft>
           <Select data-testid="selectComponent" />
@@ -28,6 +29,7 @@ const InfoContainer = () => {
         <SunTimer data-testid="sunTimerComponent" />
       </S.BottomContainer>
     </S.Container>
+    </S.OuterContainer>
   );
 };
 

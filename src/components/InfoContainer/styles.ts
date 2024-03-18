@@ -1,12 +1,21 @@
 import styled from "styled-components";
 
-export const Container = styled.main`
+export const OuterContainer = styled.main`
+display: flex;
+flex-direction: column;
+justify-content: center;
+align-items: center;
+width: 17.5em;
+background-color: #607d8bff;
+padding-inline: 2em;
+
+`
+
+export const Container = styled.section`
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
-  width: 300px;
-  height: 500px;
-  border: 1px solid red;
+  width: 18.75em;
+  height: 28em;
 `;
 
 export const TopContainer = styled.div`
