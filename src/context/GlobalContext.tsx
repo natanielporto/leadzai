@@ -43,7 +43,7 @@ export const GlobalContextProvider = ({
   const [data, setData] = useState<DataProps>({} as DataProps)
 
   const fetchWeatherInfo = useCallback(async () => {
-    const API_KEY = "b665800d4550bf50d7cbc7bb978cd0ff";
+    const API_KEY = "";
 
     try {
       const response = await fetch(
